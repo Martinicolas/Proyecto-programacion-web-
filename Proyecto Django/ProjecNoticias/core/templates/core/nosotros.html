@@ -1,0 +1,118 @@
+{% extends 'core/navbar.html' %}
+<!DOCTYPE html>
+<html lang="es">
+
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Nosotros{% endblock %}</title>
+    <link rel="shorcut icon" type="image/x-icon" href="{% static 'core/media/iconPestaña.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/estilos.css' %}">
+    <script>
+        function mostrarHora() {
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            hora = hora < 10 ? '0' + hora : hora;
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+            var horaActual = hora + ':' + minutos + ':' + segundos;
+            document.getElementById("reloj").innerHTML = horaActual;
+        }
+        setInterval(mostrarHora, 1000);
+    </script>
+
+    <main class="fondo">
+        <div class="contenedor">
+            <div class="shadow p-3 mb-5 bg-body text-center">
+
+                <h1> Acerca de nosotros</h1>
+            </div>
+            <div class="texto">
+                <h6>Hora actual</h6>
+                <div id="reloj"></div>
+
+            </div>
+            <div class="box">
+                <h2>Mision</h2>
+            </div>
+            <div class="texto">
+                <p>Nuestra misión es brindar información precisa, oportuna y relevante sobre los eventos más importantes
+                    que ocurren a nivel local, nacional e internacional. Nos esforzamos por ofrecer una cobertura
+                    equilibrada y objetiva de los hechos, sin importar la naturaleza o la fuente de la noticia.
+
+                    Creemos que el acceso a información veraz es fundamental para tomar decisiones informadas en todos
+                    los aspectos de la vida. Por lo tanto, nos comprometemos a investigar y presentar los hechos de
+                    manera clara y concisa, para que nuestros lectores puedan entender plenamente lo que está sucediendo
+                    en el mundo.</p>
+            </div>
+            <div class="box">
+                <h2>Vision</h2>
+            </div>
+            <div class="texto">
+                <p>
+                    Nuestra visión en esta página web de noticias es convertirnos en la fuente de información más
+                    confiable, accesible y completa para nuestros lectores. Queremos ser reconocidos como líderes en el
+                    campo del periodismo, proporcionando noticias objetivas, equilibradas y de alta calidad a nivel
+                    local, nacional e internacional.</p>
+            </div>
+            <div class="box">
+                <h2>Valores</h2>
+            </div>
+            <div class="texto">
+                <p>
+                    Los valores que guían nuestra página web de noticias son la objetividad, la honestidad, la
+                    integridad y la responsabilidad. Estos valores son fundamentales para nuestra misión de proporcionar
+                    información precisa y confiable a nuestros lectores.
+
+                    La objetividad es fundamental para nosotros, ya que nos esforzamos por presentar noticias
+                    equilibradas y objetivas sin sesgos ni agendas ocultas. Nos comprometemos a presentar todos los
+                    lados de una historia para que nuestros lectores puedan formar sus propias opiniones informadas.
+
+                    La honestidad es un valor que consideramos indispensable. Nos aseguramos de que todas nuestras
+                    noticias sean precisas, verificadas y libres de sensacionalismo. Creemos que la honestidad es
+                    fundamental para establecer la confianza y la credibilidad con nuestros lectores.</p>
+            </div>
+            <div class="box">
+                <h2>Contacto</h2>
+            </div>
+            <div class="texto">
+                <h4>Disponemos de dos correos electronicos para contactos</h4>
+                <p>Daniela Nuñez</p>
+                <p>da.nunezh@duocuc.cl</p>
+                <p>Martin Espinoza</p>
+                <p>ma.espinozah@duocuc.cl</p>
+
+            </div>
+            <div class="box">
+                <h2>Ubicacion</h2>
+            </div>
+            <div class="texto">
+                <p>Nos encontramos ubicados en Av. Los Pajaritos 5509
+                </p>
+                <br>
+            </div>
+            <div class="box">
+                <h2>Les dejamos un video de introduccion a una noticia</h2>
+                <br>
+            </div>
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=FoWPqudNS_Q"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+
+            </div>
+        </div>
+    </main>
+
+
+    {% endblock %}

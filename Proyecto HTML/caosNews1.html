@@ -27,10 +27,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="caosNews1.html">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Periodistas.html">Nosotros</a>
+                            <a class="nav-link" href="{% url 'periodistas' %}">Nosotros</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -44,10 +44,10 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="contacto.html">Contacto</a>
+                            <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="sesion.html">Iniciar sesion</a>
+                            <a class="nav-link " href="{% url 'sesion' %}">Iniciar sesion</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -58,7 +58,9 @@
             </div>
         </nav>
     </header>
-
+    <!-- contenido -->
+    {% block content %}{% endblock %}
+    <!-- pie de pagina -->
     <main>
         <div class="carrousel-container">
             <div id="carouselExampleCaptions" class="carousel slide container carrousel-item">
