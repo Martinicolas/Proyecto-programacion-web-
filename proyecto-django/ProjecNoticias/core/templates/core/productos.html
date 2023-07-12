@@ -20,10 +20,186 @@
 <body>
     <main class="fondo1">
         <div class="contenedor">
-            <div class="shadow p-3 mb-5 bg-body text-center">
+            <div class="row">
+                <div class="col-12 align-self-center">
+                    <h1 class="shadow p-3 mb-5 bg-body text-center">TIENDA DE PRODUCTOS</h1>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row" style="padding: 10px 0;">
+                            <div class="col-12">
+                                <div class="row">
+                                    <!DOCTYPE html>
+                                    <html lang="es">
 
-                <h1> Tienda de productos</h1>
+                                    <head>
+                                        <meta charset="UTF-8">
+                                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <title>Tienda de Poleras</title>
+                                        <link rel="stylesheet" href="styles.css">
+                                    </head>
+
+                                    <body>
+
+                                        <div class="container">
+                                            <div class="productos">
+                                                <div class="producto">
+                                                    <img src="{% static 'core/media/caos1.png' %}" alt="Polera 1">
+                                                    <h3>Taza Microfono Caos News</h3>
+                                                    <p>Precio: $5.000</p>
+                                                    <button class="btn btn-primary"
+                                                        onclick="agregarAlCarrito('Taza Microfono Caos News', 5.000)">
+                                                        Agregar
+                                                        al
+                                                        Carrito</button>
+                                                </div>
+                                                <br><br>
+                                                <div class="producto">
+                                                    <img src="{% static 'core/media/caos2.png' %}" alt="Taza CaosNews">
+                                                    <h3>Taza CaosNews</h3>
+                                                    <p>Precio: $5.000</p>
+                                                    <button class="btn btn-primary"
+                                                        onclick="agregarAlCarrito('Taza CaosNews', 5.000)">Agregar
+                                                        al
+                                                        Carrito</button>
+                                                </div>
+                                                <br><br>
+                                                <div class="producto">
+                                                    <img src="{% static 'core/media/caos3.png' %}" alt="Polera Rayo">
+                                                    <h3>Polera Rayo</h3>
+                                                    <p>Precio: $15.000</p>
+                                                    <button class="btn btn-primary"
+                                                        onclick="agregarAlCarrito('Polera Rayo', 15000)">Agregar al
+                                                        Carrito</button>
+                                                </div>
+                                                <br><br>
+                                                <div class="producto">
+                                                    <img src="{% static 'core/media/caos4.png' %}"
+                                                        alt="Polera blanca Caos News">
+                                                    <h3>Polera blanca Caos News</h3>
+                                                    <p>Precio: $14.990</p>
+                                                    <button class="btn btn-primary"
+                                                        onclick="agregarAlCarrito('Polera blanca Caos News', 14990)">Agregar
+                                                        al
+                                                        Carrito</button>
+                                                </div>
+                                                <br><br>
+                                                <div class="producto">
+                                                    <img src="{% static 'core/media/caos5.png' %}"
+                                                        alt="Polera Microfono">
+                                                    <h3>Polera Microfono</h3>
+                                                    <p>Precio: $20.000</p>
+                                                    <button class="btn btn-primary"
+                                                        onclick="agregarAlCarrito('Polera Microfono', 20000)">Agregar al
+                                                        Carrito</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <script src="script.js"></script>
+                                    </body>
+
+                                    </html>
+                                    <script>
+                                        let carrito = [];
+                                        let total = 0;
+
+                                        function agregarAlCarrito(nombre, precio) {
+                                            const producto = { nombre, precio };
+                                            carrito.push(producto);
+                                            total += precio;
+                                            actualizarCarrito();
+                                        }
+
+                                        function actualizarCarrito() {
+                                            const listaCarrito = document.getElementById("lista-carrito");
+                                            listaCarrito.innerHTML = "";
+
+                                            carrito.forEach(producto => {
+                                                const { nombre, precio } = producto;
+                                                const itemCarrito = document.createElement("li");
+                                                itemCarrito.textContent = `${nombre} - Precio: $${precio.toFixed(2)}`;
+                                                listaCarrito.appendChild(itemCarrito);
+                                            });
+
+                                            const totalCarrito = document.getElementById("total-carrito");
+                                            totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+                                        }
+
+                                        function vaciarCarrito() {
+                                            carrito = [];
+                                            total = 0;
+                                            actualizarCarrito();
+                                        }
+
+                                        function mostrarCarrito() {
+                                            const carritoElement = document.getElementById("carrito");
+                                            carritoElement.classList.toggle("oculto");
+                                        }
+
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-4">
+
+
+                        <div id="carrito" class="carrito oculto">
+                            <h2>Carrito de Compras</h2>
+                            <ul id="lista-carrito"></ul>
+                            <p id="total-carrito">Total: $0</p>
+                            <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                            <a class="btn btn-secondary" href="{% url 'carrito' %}">Pagar</a>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
+        </div>
+
+
+
+
+    </main>
+</body>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   </div>
             <div class="container mt-4">
                 <div class="row justify-content-around">
                     <div class="card col-4">
@@ -87,13 +263,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
-        <!--<img src="{% static 'core/media/caos1.png' %}" alt="">-->
-    </main>
-</body>
-
-
-
-
-{% endblock %}
+<!--<img src="{% static 'core/media/caos1.png' %}" alt="">-->

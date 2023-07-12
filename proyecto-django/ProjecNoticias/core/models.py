@@ -14,3 +14,12 @@ class Periodista(models.Model):
     def __str__(self):
         texto = "{0} ({1})"
         return texto.format(self.codigo, self.nombre, self.rango)
+
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=64)
+    categoria = models.CharField(max_length=32)
+    precio = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.nombre} -> {self.precio}'

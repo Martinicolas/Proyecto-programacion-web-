@@ -26,10 +26,11 @@ urlpatterns = [
     path('contacto', views.contacto, name="contacto"),
     path('sesion', views.sesion, name="sesion"),
     path('productos', views.productos, name="productos"),
-    path('test', views.test, name="test"),
+    path('carrito', views.carrito, name="carrito"),
     path('periodistas', views.periodistas, name="periodistas"),
     path('eliminarPeriodista/<codigo>', views.eliminarPeriodista),
     path('editarPeriodista/<codigo>/', views.editarPeriodista),
     path('admin/', admin.site.urls),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
